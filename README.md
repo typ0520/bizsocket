@@ -4,7 +4,7 @@
 
 [ ![Download](https://api.bintray.com/packages/typ0520/maven/com.github.typ0520%3Abizsocket-core/images/download.svg) ](https://bintray.com/typ0520/maven/com.github.typ0520%3Abizsocket-core/_latestVersion)
 
-##异步socket，对一些业务场景做了支持
+## 异步socket，对一些业务场景做了支持
 
 - 断线重连
 - 一对一请求
@@ -206,7 +206,7 @@ public static void main(String[] args) {
             }
         });
 
-		 //发起一对一请求
+	//发起一对一请求
         String json = "{\"productId\" : \"1\",\"isJuan\" : \"0\",\"type\" : \"2\",\"sl\" : \"1\"}";
         client.request(new Request.Builder().command(SampleCmd.CREATE_ORDER.getValue()).utf8body(json).build(), new ResponseHandler() {
             @Override
@@ -220,7 +220,7 @@ public static void main(String[] args) {
             }
         });
 
-		//如果想用rxjava的形式调用也是支持的,提供了类似于retrofit通过动态代理创建的service类来调用
+	//如果想用rxjava的形式调用也是支持的,提供了类似于retrofit通过动态代理创建的service类来调用
         BizSocketRxSupport rxSupport = new BizSocketRxSupport.Builder()
                 .requestConverter(new JSONRequestConverter())
                 .requestConverter(new JSONRequestConverter())
@@ -251,7 +251,7 @@ public static void main(String[] args) {
             }
         });
 
-		//阻塞主线程，防止程序退出，可以想象成android中的Looper类
+	//阻塞主线程，防止程序退出，可以想象成android中的Looper类
         while (true) {
             try {
                 Thread.sleep(10000);
