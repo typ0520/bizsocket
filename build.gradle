@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+//---sub project common config ---
+subprojects {
+    apply plugin: "java"
+    apply plugin: 'maven'
+    apply from: "$rootDir/bintray.gradle"
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
