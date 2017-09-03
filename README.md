@@ -223,7 +223,7 @@ public static void main(String[] args) {
 	//如果想用rxjava的形式调用也是支持的,提供了类似于retrofit通过动态代理创建的service类来调用
         BizSocketRxSupport rxSupport = new BizSocketRxSupport.Builder()
                 .requestConverter(new JSONRequestConverter())
-                .requestConverter(new JSONRequestConverter())
+                .responseConverter(new JSONResponseConverter())
                 .bizSocket(client)
                 .build();
         SampleService service = rxSupport.create(SampleService.class);

@@ -3,6 +3,7 @@ package bizsocket.sample.j2se;
 import bizsocket.core.*;
 import bizsocket.rx.BizSocketRxSupport;
 import bizsocket.rx.JSONRequestConverter;
+import bizsocket.rx.JSONResponseConverter;
 import bizsocket.sample.j2se.common.*;
 import bizsocket.tcp.Packet;
 import bizsocket.tcp.PacketFactory;
@@ -58,7 +59,7 @@ public class SampleClient extends AbstractBizSocket {
         //创建rxjava请求环境(类似于retrofit)
         BizSocketRxSupport rxSupport = new BizSocketRxSupport.Builder()
                 .requestConverter(new JSONRequestConverter())
-                .requestConverter(new JSONRequestConverter())
+                .responseConverter(new JSONResponseConverter())
                 .bizSocket(client)
                 .build();
         SampleService service = rxSupport.create(SampleService.class);

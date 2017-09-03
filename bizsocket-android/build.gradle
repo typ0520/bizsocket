@@ -6,7 +6,7 @@ dependencies {
 
 def getAndroidRuntimeJar() {
     def androidHome = getAndroidHome()
-    def androidJar = new File("$androidHome/platforms/android-8/android.jar")
+    def androidJar = new File("$androidHome/platforms/android-14/android.jar")
     if (androidJar.isFile()) {
         return androidJar
     } else {
