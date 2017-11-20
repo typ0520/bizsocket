@@ -22,6 +22,7 @@ include 'bizsocket-logger'
 include 'bizsocket-tcp'
 include 'bizsocket-core'
 include 'bizsocket-base'
+include 'bizsocket-rx1'
 include 'bizsocket-android'
 
 include 'sample:j2se'

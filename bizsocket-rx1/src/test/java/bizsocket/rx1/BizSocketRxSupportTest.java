@@ -1,9 +1,13 @@
-package bizsocket.base;
+package bizsocket.rx1;
 
+import junit.framework.TestCase;
+
+import org.junit.Test;
+
+import bizsocket.base.JSONRequestConverter;
+import bizsocket.base.JSONResponseConverter;
 import bizsocket.core.Configuration;
 import client.SampleSocketClient;
-import junit.framework.TestCase;
-import org.junit.Test;
 
 /**
  * Created by tong on 16/10/8.

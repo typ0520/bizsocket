@@ -1,5 +1,8 @@
-package bizsocket.base;
+package bizsocket.rx1;
 
+import bizsocket.base.Cmd;
+import bizsocket.base.Request;
+import bizsocket.base.Tag;
 import bizsocket.core.ResponseHandler;
 import bizsocket.tcp.Packet;
 import com.google.gson.internal.$Gson$Types;
