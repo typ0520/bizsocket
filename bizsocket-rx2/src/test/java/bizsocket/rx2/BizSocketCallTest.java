@@ -12,12 +12,14 @@ import bizsocket.core.ResponseHandler;
 import bizsocket.tcp.PacketFactory;
 import client.SamplePacketFactory;
 import junit.framework.TestCase;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import okio.ByteString;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
-import rx.Observable;
-import rx.Subscriber;
 import java.lang.reflect.Method;
 
 /**
@@ -257,21 +259,18 @@ public class BizSocketCallTest extends TestCase {
         BizSocketCall call = new BizSocketCall();
 
         Observable<String> observable = (Observable<String>) call.call(bizSocketRxSupport, method, new Object(), "myusername", "mypassword");
-        observable.subscribe(new Subscriber<String>() {
+        observable.subscribe(new Observer<String>() {
             @Override
-            public void onCompleted() {
-
-            }
+            public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onError(Throwable e) {
-                fail(e.getMessage());
-            }
+            public void onNext(String s) {System.out.println(s);}
 
             @Override
-            public void onNext(String s) {
-                System.out.println(s);
-            }
+            public void onError(Throwable e) {fail(e.getMessage());}
+
+            @Override
+            public void onComplete() {}
         });
     }
 
@@ -316,21 +315,18 @@ public class BizSocketCallTest extends TestCase {
         BizSocketCall call = new BizSocketCall();
 
         Observable<JSONObject> observable = (Observable<JSONObject>) call.call(bizSocketRxSupport, method, new Object(), "myusername", "mypassword");
-        observable.subscribe(new Subscriber<JSONObject>() {
+        observable.subscribe(new Observer<JSONObject>() {
             @Override
-            public void onCompleted() {
-
-            }
+            public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onError(Throwable e) {
-                fail(e.getMessage());
-            }
+            public void onNext(JSONObject jsonObject) {System.out.println(jsonObject);}
 
             @Override
-            public void onNext(JSONObject s) {
-                System.out.println(s);
-            }
+            public void onError(Throwable e) {fail(e.getMessage());}
+
+            @Override
+            public void onComplete() {}
         });
     }
 
@@ -376,21 +372,18 @@ public class BizSocketCallTest extends TestCase {
         BizSocketCall call = new BizSocketCall();
 
         Observable<CodeMsg> observable = (Observable<CodeMsg>) call.call(bizSocketRxSupport, method, new Object(), "myusername", "mypassword");
-        observable.subscribe(new Subscriber<CodeMsg>() {
+        observable.subscribe(new Observer<CodeMsg>() {
             @Override
-            public void onCompleted() {
-
-            }
+            public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onError(Throwable e) {
-                fail(e.getMessage());
-            }
+            public void onNext(CodeMsg codeMsg) {System.out.println(codeMsg);}
 
             @Override
-            public void onNext(CodeMsg s) {
-                System.out.println(s);
-            }
+            public void onError(Throwable e) {fail(e.getMessage());}
+
+            @Override
+            public void onComplete() {}
         });
     }
 
@@ -435,21 +428,18 @@ public class BizSocketCallTest extends TestCase {
         BizSocketCall call = new BizSocketCall();
 
         Observable observable = call.call(bizSocketRxSupport, method, new Object(), "myusername", "mypassword");
-        observable.subscribe(new Subscriber() {
+        observable.subscribe(new Observer() {
             @Override
-            public void onCompleted() {
-
-            }
+            public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onError(Throwable e) {
-                e.printStackTrace();
-            }
+            public void onNext(Object o) {System.out.print(o);}
 
             @Override
-            public void onNext(Object s) {
-                System.out.print(s);
-            }
+            public void onError(Throwable e) {e.printStackTrace();}
+
+            @Override
+            public void onComplete() {}
         });
     }
 
@@ -494,21 +484,18 @@ public class BizSocketCallTest extends TestCase {
         BizSocketCall call = new BizSocketCall();
 
         Observable observable = call.call(bizSocketRxSupport, method, 88,"ss");
-        observable.subscribe(new Subscriber() {
+        observable.subscribe(new Observer() {
             @Override
-            public void onCompleted() {
-
-            }
+            public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onError(Throwable e) {
-                e.printStackTrace();
-            }
+            public void onNext(Object o) {}
 
             @Override
-            public void onNext(Object s) {
+            public void onError(Throwable e) {e.printStackTrace();}
 
-            }
+            @Override
+            public void onComplete() {}
         });
     }
 }
