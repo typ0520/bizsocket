@@ -1,11 +1,12 @@
-package bizsocket.base;
+package bizsocket.rx1;
 
+import bizsocket.base.*;
 import junit.framework.TestCase;
-
 import okio.ByteString;
 import org.json.JSONObject;
 import org.junit.Test;
 import rx.Observable;
+
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,16 +18,16 @@ public class JSONRequestConverterTest extends TestCase {
     public interface TestService1 {
         @Request(cmd = 1)
         Observable<String> method1(@Tag Object tag
-                ,@Query("username") String username,
+                , @Query("username") String username,
                                    @Query("password") String password);
 
         @Request(cmd = 1)
         Observable<String> method2(@Tag Object tag
-                ,@Query("username") String username,
-                                   @Query("password") String password,@QueryMap Map map);
+                , @Query("username") String username,
+                                   @Query("password") String password, @QueryMap Map map);
 
         @Request(cmd = 1)
-        Observable<String> method3(String username,String password);
+        Observable<String> method3(String username, String password);
     }
 
     private Class<?> serviceClazz = TestService1.class;
