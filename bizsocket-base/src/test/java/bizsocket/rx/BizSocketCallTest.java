@@ -1,5 +1,13 @@
 package bizsocket.rx;
 
+import bizsocket.base.BizSocketCall;
+import bizsocket.base.BizSocketRxSupport;
+import bizsocket.base.Cmd;
+import bizsocket.base.JSONRequestConverter;
+import bizsocket.base.JSONResponseConverter;
+import bizsocket.base.Query;
+import bizsocket.base.Request;
+import bizsocket.base.Tag;
 import bizsocket.core.AbstractBizSocket;
 import bizsocket.core.Configuration;
 import bizsocket.core.ResponseHandler;
@@ -53,7 +61,7 @@ public class BizSocketCallTest extends TestCase {
         Observable testCall8(@Tag Object tag,String username,String password);
 
         @Request(cmd = 22)
-        Observable testCall9(@Cmd int cmd,@Query("username") String username);
+        Observable testCall9(@Cmd int cmd, @Query("username") String username);
     }
 
     public static class CodeMsg {

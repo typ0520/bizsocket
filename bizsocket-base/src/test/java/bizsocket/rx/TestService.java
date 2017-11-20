@@ -1,5 +1,8 @@
 package bizsocket.rx;
 
+import bizsocket.base.Query;
+import bizsocket.base.Request;
+import bizsocket.base.Tag;
 import rx.Observable;
 
 /**

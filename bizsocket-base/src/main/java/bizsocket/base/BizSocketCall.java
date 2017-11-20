@@ -1,4 +1,4 @@
-package bizsocket.rx;
+package bizsocket.base;
 
 import bizsocket.core.ResponseHandler;
 import bizsocket.tcp.Packet;

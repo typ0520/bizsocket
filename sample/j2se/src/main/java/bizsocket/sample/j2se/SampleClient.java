@@ -1,9 +1,9 @@
 package bizsocket.sample.j2se;
 
 import bizsocket.core.*;
-import bizsocket.rx.BizSocketRxSupport;
-import bizsocket.rx.JSONRequestConverter;
-import bizsocket.rx.JSONResponseConverter;
+import bizsocket.base.BizSocketRxSupport;
+import bizsocket.base.JSONRequestConverter;
+import bizsocket.base.JSONResponseConverter;
 import bizsocket.sample.j2se.common.*;
 import bizsocket.tcp.Packet;
 import bizsocket.tcp.PacketFactory;

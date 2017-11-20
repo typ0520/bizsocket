@@ -1,7 +1,7 @@
 package bizsocket.sample.j2se.common;
 
-import bizsocket.rx.Body;
-import bizsocket.rx.Request;
+import bizsocket.base.Body;
+import bizsocket.base.Request;
 import okio.ByteString;
 import org.json.JSONObject;
 import rx.Observable;

@@ -1,4 +1,4 @@
-package bizsocket.rx;
+package bizsocket.base;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

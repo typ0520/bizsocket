@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package bizsocket.rx;
+package bizsocket.base;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
+
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
@@ -25,6 +26,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  */
 @Target(PARAMETER)
 @Retention(RUNTIME)
-public @interface Tag {
+public @interface Cmd {
 
 }

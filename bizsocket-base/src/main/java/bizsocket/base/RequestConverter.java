@@ -1,4 +1,4 @@
-package bizsocket.rx;
+package bizsocket.base;
 
 import okio.ByteString;
 import java.lang.reflect.Method;
