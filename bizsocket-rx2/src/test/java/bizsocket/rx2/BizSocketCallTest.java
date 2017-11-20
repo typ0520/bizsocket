@@ -58,10 +58,10 @@ public class BizSocketCallTest extends TestCase {
         Observable<CodeMsg> testCall7(@Tag Object tag,String username,String password);
 
         @Request(cmd = 22)
-        Observable testCall8(@Tag Object tag,String username,String password);
+        Observable<String> testCall8(@Tag Object tag,String username,String password);
 
         @Request(cmd = 22)
-        Observable testCall9(@Cmd int cmd, @Query("username") String username);
+        Observable<String> testCall9(@Cmd int cmd, @Query("username") String username);
     }
 
     public static class CodeMsg {
@@ -427,13 +427,13 @@ public class BizSocketCallTest extends TestCase {
         Method method = serviceClazz.getMethod("testCall8",Object.class,String.class,String.class);
         BizSocketCall call = new BizSocketCall();
 
-        Observable observable = call.call(bizSocketRxSupport, method, new Object(), "myusername", "mypassword");
-        observable.subscribe(new Observer() {
+        Observable<String> observable = (Observable<String>)call.call(bizSocketRxSupport, method, new Object(), "myusername", "mypassword");
+        observable.subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onNext(Object o) {System.out.print(o);}
+            public void onNext(String s) {System.out.print(s);}
 
             @Override
             public void onError(Throwable e) {e.printStackTrace();}
@@ -483,13 +483,13 @@ public class BizSocketCallTest extends TestCase {
         Method method = serviceClazz.getMethod("testCall9",int.class,String.class);
         BizSocketCall call = new BizSocketCall();
 
-        Observable observable = call.call(bizSocketRxSupport, method, 88,"ss");
-        observable.subscribe(new Observer() {
+        Observable<String> observable = (Observable<String>)call.call(bizSocketRxSupport, method, 88,"ss");
+        observable.subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {}
 
             @Override
-            public void onNext(Object o) {}
+            public void onNext(String s) {System.out.print(s);}
 
             @Override
             public void onError(Throwable e) {e.printStackTrace();}
