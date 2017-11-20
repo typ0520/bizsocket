@@ -1,13 +1,5 @@
-package bizsocket.rx;
+package bizsocket.base;
 
-import bizsocket.base.BizSocketCall;
-import bizsocket.base.BizSocketRxSupport;
-import bizsocket.base.Cmd;
-import bizsocket.base.JSONRequestConverter;
-import bizsocket.base.JSONResponseConverter;
-import bizsocket.base.Query;
-import bizsocket.base.Request;
-import bizsocket.base.Tag;
 import bizsocket.core.AbstractBizSocket;
 import bizsocket.core.Configuration;
 import bizsocket.core.ResponseHandler;

@@ -1,12 +1,7 @@
-package bizsocket.rx;
+package bizsocket.base;
 
 import junit.framework.TestCase;
 
-import bizsocket.base.JSONRequestConverter;
-import bizsocket.base.Query;
-import bizsocket.base.QueryMap;
-import bizsocket.base.Request;
-import bizsocket.base.Tag;
 import okio.ByteString;
 import org.json.JSONObject;
 import org.junit.Test;
