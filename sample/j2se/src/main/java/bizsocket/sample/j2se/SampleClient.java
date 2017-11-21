@@ -4,7 +4,6 @@ import bizsocket.core.*;
 import bizsocket.base.JSONRequestConverter;
 import bizsocket.base.JSONResponseConverter;
 import bizsocket.rx1.BizSocketRxSupport;
-//import bizsocket.rx2.BizSocketRxSupport;
 import bizsocket.sample.j2se.common.*;
 import bizsocket.tcp.Packet;
 import bizsocket.tcp.PacketFactory;
