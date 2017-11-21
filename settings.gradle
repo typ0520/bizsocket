@@ -27,4 +27,6 @@ include 'bizsocket-rx2'
 include 'bizsocket-android'
 
 include 'sample:j2se'
+include 'sample-rx2'
+include 'sample-rx2:j2se'
 
