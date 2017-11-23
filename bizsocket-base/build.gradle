@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':bizsocket-core')
+    compile 'com.google.code.gson:gson:2.3.1'
+}

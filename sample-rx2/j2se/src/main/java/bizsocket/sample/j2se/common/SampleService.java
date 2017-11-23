@@ -2,9 +2,9 @@ package bizsocket.sample.j2se.common;
 
 import bizsocket.base.Body;
 import bizsocket.base.Request;
+import io.reactivex.Observable;
 import okio.ByteString;
 import org.json.JSONObject;
-import rx.Observable;
 
 /**
  * Created by tong on 17/6/15.

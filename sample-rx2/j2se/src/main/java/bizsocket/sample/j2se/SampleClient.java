@@ -3,15 +3,16 @@ package bizsocket.sample.j2se;
 import bizsocket.core.*;
 import bizsocket.base.JSONRequestConverter;
 import bizsocket.base.JSONResponseConverter;
-import bizsocket.rx1.BizSocketRxSupport;
+import bizsocket.rx2.BizSocketRxSupport;
 import bizsocket.sample.j2se.common.*;
 import bizsocket.tcp.Packet;
 import bizsocket.tcp.PacketFactory;
 import bizsocket.tcp.Request;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import okio.ByteString;
 import org.json.JSONException;
 import org.json.JSONObject;
-import rx.Subscriber;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -109,10 +110,15 @@ public class SampleClient extends AbstractBizSocket {
             e.printStackTrace();
         }
 
-        service.queryOrderList(params).subscribe(new Subscriber<JSONObject>() {
+        service.queryOrderList(params).subscribe(new Observer<JSONObject>() {
             @Override
-            public void onCompleted() {
+            public void onSubscribe(Disposable d) {
 
+            }
+
+            @Override
+            public void onNext(JSONObject jsonObject) {
+                System.out.println("rx response: " + jsonObject);
             }
 
             @Override
@@ -121,11 +127,10 @@ public class SampleClient extends AbstractBizSocket {
             }
 
             @Override
-            public void onNext(JSONObject jsonObject) {
-                System.out.println("rx response: " + jsonObject);
+            public void onComplete() {
+
             }
         });
-
 
         while (true) {
             try {

@@ -21,8 +21,12 @@ rootProject.name = 'com.github.typ0520'
 include 'bizsocket-logger'
 include 'bizsocket-tcp'
 include 'bizsocket-core'
-include 'bizsocket-rx'
+include 'bizsocket-base'
+include 'bizsocket-rx1'
+include 'bizsocket-rx2'
 include 'bizsocket-android'
 
 include 'sample:j2se'
+include 'sample-rx2'
+include 'sample-rx2:j2se'
 
