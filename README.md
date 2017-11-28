@@ -14,6 +14,7 @@
 - 缓存
 - 拦截器
 - 支持rxjava，提供类似于retrofit的支持
+- 提供rxjava和rxjava2两种使用方式
 
 ## 使用方式
 ### RxJava2
