@@ -1,5 +1,4 @@
 dependencies {
-    compile project(':bizsocket-base')
     compile project(':bizsocket-rx2')
 
     compile 'org.json:org.json:2.0'
