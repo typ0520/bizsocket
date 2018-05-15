@@ -20,8 +20,7 @@ public class ReconnectionManager {
     private ReconnectHandler reconnectHandler;
 
     public void bind(SocketConnection connection) {
-        this.connection = connection;
-        this.connection.removeConnectionListener(connectionListener);
+        unbind();    
         this.connection = connection;
         this.connection.addConnectionListener(connectionListener);
     }
