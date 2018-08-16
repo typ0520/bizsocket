@@ -53,8 +53,15 @@ public class DefaultOne2ManyNotifyRouter implements One2ManyNotifyRouter {
         NotifyContext notifyContext = new NotifyContext(tag,cmd,responseHandler);
         notifyContexts.add(notifyContext);
 
+        StickyContext stickyContext = null;
+        for (StickyContext context : stickyCmds) {
+            if (context.cmd == cmd) {
+                stickyContext = context;
+                break;
+            }
+        }
         Packet packet = null;
-        if (stickyCmds.contains(cmd) && (packet = packetMap.get(cmd)) != null) {
+        if (stickyContext != null && (packet = packetMap.get(cmd)) != null) {
             //如果是粘性广播命令并且有缓存的包，立即回调一次
             logger.debug("Sticky callback: " + packet);
             sendSuccessMessage(notifyContext,cmd,packet);
