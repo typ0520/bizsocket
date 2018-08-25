@@ -89,6 +89,8 @@ public class SampleClient extends AbstractBizSocket {
             }
         });
 
+        //typ0520 ks im
+        //{"address":"4078b6269117f95bc03b18e00617b005ab233b2d","crypto":{"cipher":"aes-128-ctr","cipherparams":{"iv":"068c628e6860cf13803a74eb18d4dae3"},"ciphertext":"2c76e25ab190b247f7318c4d8f184ca76ea56c3b0c60997b3ead1fbbd0d44d7f","kdf":"scrypt","kdfparams":{"dklen":32,"n":65536,"p":1,"r":8,"salt":"27234c1bd39af1f9252faac96025ab66cad1e0f22ba0277373457849060003c6"},"mac":"84e100908c6ff41a92df5235080a9ed034e0a5d0851f40030d2f9d2732fe1ea3"},"id":"08a8d514-35e8-4fe3-b3bb-9223a6a014c6","version":3}
         String json = "{\"productId\" : \"1\",\"isJuan\" : \"0\",\"type\" : \"2\",\"sl\" : \"1\"}";
         client.request(new Request.Builder().command(SampleCmd.CREATE_ORDER.getValue()).utf8body(json).build(), new ResponseHandler() {
             @Override

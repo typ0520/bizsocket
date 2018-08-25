@@ -49,6 +49,8 @@ public class SampleServer {
                     params.put("code","200");
                     params.put("result",decimalFormat.format(((new Random().nextInt(500) + 4000) * 0.001)));
                     params.put("lastPrice",decimalFormat.format(((new Random().nextInt(500) + 4000) * 0.001)));
+                    //typ0520 zjc im
+                    params.put("randomString", "clerk picture upper river planet faith hurdle blind state embark language badge.")
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
