@@ -66,6 +66,11 @@ public abstract class SocketConnection implements Connection, ReconnectionManage
         callConnectionListenerConnected();
     }
 
+//    @Override
+//    public void connect(int timeout) {
+//
+//    }
+
     public boolean connectAndStartWatch() {
         logger.debug("connectAndStartWatch host: " + host + " port: " + port);
         try {

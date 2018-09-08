@@ -157,6 +157,12 @@ public class RequestQueue implements PacketListener,ConnectionListener {
     }
 
     public void sendRequest(RequestContext context) {
+        if ((context.getFlags() & RequestContext.FLAG_DISALLOW_WAIT_CONNECT) != 0 && !bizSocket.isConnected()) {
+            //remove context
+            removeRequestContext(context);
+            context.callRequestTimeout();
+            return;
+        }
         if ((context.getFlags() & RequestContext.FLAG_CHECK_CONNECT_STATUS) == 0
                 || ((context.getFlags() & RequestContext.FLAG_CHECK_CONNECT_STATUS) != 0 && bizSocket.isConnected())) {
             //Logger.e("connected , send request ...");

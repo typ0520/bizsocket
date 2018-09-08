@@ -6,6 +6,8 @@ package bizsocket.tcp;
 public interface Connection {
     void connect() throws Exception;
 
+//    void connect(int timeout) throws Exception;
+
     void disconnect();
 
     boolean isConnected();

@@ -38,6 +38,11 @@ public class RequestContext implements ResponseHandler {
      */
     public static final int FLAG_NOT_SUPPORT_REPEAT = 1 << 7;
 
+    /**
+     * 发送包时如果socket处于断开状态立即触发错误回调
+     */
+    public static final int FLAG_DISALLOW_WAIT_CONNECT = 1 << 8;
+
     protected final Logger logger = LoggerFactory.getLogger(RequestContext.class.getSimpleName());
 
     private final Request request;
