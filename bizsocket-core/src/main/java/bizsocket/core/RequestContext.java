@@ -16,27 +16,27 @@ public class RequestContext implements ResponseHandler {
     /**
      * 请求已发送
      */
-    public static final int FLAG_REQUEST_ALREADY_SEND = 1 << 1;
+    public static final int FLAG_REQUEST_ALREADY_SEND = 1 << 3;
 
     /**
      * 发送时是否检查当前连接状态
      */
-    public static final int FLAG_CHECK_CONNECT_STATUS = 1 << 2;
+    public static final int FLAG_CHECK_CONNECT_STATUS = 1 << 4;
 
     /**
      * 紧急的包需要优先插队执行
      */
-    public static final int FLAG_JUMP_QUEUE = 1 << 3;
+    public static final int FLAG_JUMP_QUEUE = 1 << 5;
 
     /**
      * 写出这个包之前清空队列
      */
-    public static final int FLAG_CLEAR_QUEUE = 1 << 4;
+    public static final int FLAG_CLEAR_QUEUE = 1 << 6;
 
     /**
      * 同一个请求不允许重复出现在队列中
      */
-    public static final int FLAG_NOT_SUPPORT_REPEAT = 1 << 5;
+    public static final int FLAG_NOT_SUPPORT_REPEAT = 1 << 7;
 
     protected final Logger logger = LoggerFactory.getLogger(RequestContext.class.getSimpleName());
 
