@@ -6,11 +6,11 @@ dependencies {
 
 def getAndroidRuntimeJar() {
     def androidHome = getAndroidHome()
-    def androidJar = new File("$androidHome/platforms/android-24/android.jar")
+    def androidJar = new File("$androidHome/platforms/android-26/android.jar")
     if (androidJar.isFile()) {
         return androidJar
     } else {
-        throw new Exception("Can't find android.jar for 24 API. Please install corresponding SDK platform package")
+        throw new Exception("Can't find android.jar for 26 API. Please install corresponding SDK platform package")
     }
 }
 

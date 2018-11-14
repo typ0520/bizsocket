@@ -210,6 +210,10 @@ public abstract class SocketConnection implements Connection, ReconnectionManage
         reconnectionManager = null;
     }
 
+    public ReconnectionManager getReconnectionManager() {
+        return reconnectionManager;
+    }
+
     protected Socket createSocket(String host, int port) throws Exception {
         Socket socket = new Socket(host, port);
         socket.setKeepAlive(true);
