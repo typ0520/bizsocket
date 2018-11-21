@@ -57,15 +57,27 @@ public class RequestQueue implements PacketListener,ConnectionListener {
                 requestContextList.add(context);
             }
             InterceptorChain chain = getInterceptorChain();
-            boolean result = chain.invokePostRequestHandle(context);
-            if (result) {
-                onRequestIntercepted(context);
+            Boolean result = null;
+            try {
+                result = chain.invokePostRequestHandle(context);
+            } catch (Throwable e) {
+                onErrorWhenIntercept(context, e);
             }
-            else {
-                dealSerialSignal(context);
-                sendRequest(context);
+            if (result != null) {
+                if (result) {
+                    onRequestIntercepted(context);
+                }
+                else {
+                    dealSerialSignal(context);
+                    sendRequest(context);
+                }
             }
         }
+    }
+
+    protected void onErrorWhenIntercept(RequestContext context, Throwable e) {
+        context.sendFailureMessage(context.getRequestCommand(), e);
+        removeRequestContext(context);
     }
 
     protected void onRequestIntercepted(RequestContext context) {
