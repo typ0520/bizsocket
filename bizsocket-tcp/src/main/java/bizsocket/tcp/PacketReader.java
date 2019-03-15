@@ -3,12 +3,16 @@ package bizsocket.tcp;
 import bizsocket.logger.Logger;
 import bizsocket.logger.LoggerFactory;
 import okio.BufferedSource;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Listens for data from the tcp server and parses it into packet objects.
  * The packet reader also invokes all packet listeners.
  */
 class PacketReader {
+    volatile static ExecutorService POLL = Executors.newFixedThreadPool(1);
+
     private Thread readerThread;
     private final SocketConnection connection;
     private BufferedSource reader;
@@ -81,11 +85,19 @@ class PacketReader {
      */
     private void parsePackets(Thread thisThread) {
         while (!this.done && this.readerThread == thisThread) {
-            Packet packet = null;
             try {
-                packet = connection.getPacketFactory().getRemotePacket(reader);
+                final Packet packet = connection.getPacketFactory().getRemotePacket(reader);
                 if (packet != null && !done && this.readerThread == thisThread) {
-                    connection.handlerReceivedPacket(packet);
+                    POLL.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                connection.handlerReceivedPacket(packet);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -94,13 +106,13 @@ class PacketReader {
                 }
             }
 
-            try {
-                if (!done) {
-                    Thread.sleep(200);
-                }
-            } catch (InterruptedException e) {
-
-            }
+//            try {
+//                if (!done) {
+//                    Thread.sleep(200);
+//                }
+//            } catch (InterruptedException e) {
+//
+//            }
         }
     }
 }
